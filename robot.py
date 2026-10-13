@@ -63,20 +63,24 @@ images = [i for i in images if "Minimal" not in i["displayName"]] or images
 subnet, image = subnets[0]["id"], images[0]["id"]
 print("Imagen:", images[0]["displayName"])
 
-for ad in ads:
-    for ocpus, mem in SIZES:
-        body = {"availabilityDomain": ad["name"], "compartmentId": TENANCY, "displayName": NAME,
-                "shape": "VM.Standard.A1.Flex", "shapeConfig": {"ocpus": ocpus, "memoryInGBs": mem},
-                "sourceDetails": {"sourceType": "image", "imageId": image},
-                "createVnicDetails": {"subnetId": subnet, "assignPublicIp": True},
-                "metadata": {"ssh_authorized_keys": SSH_KEY}}
-        st, res = call("POST", f"{IAAS}/instances", body)
-        if st in (200, 201):
-            print(f"¡CONSEGUIDO! {ocpus} OCPU / {mem} GB en {ad['name']}")
-            open(os.environ.get("GITHUB_OUTPUT", "/dev/null"), "a").write(f"done=new\nsize={ocpus} OCPU / {mem} GB\n")
-            sys.exit(0)
-        msg = (res or {}).get("message", "")
-        print(f"{ocpus}/{mem} en {ad['name']}: {st} {msg[:120]}")
-        if "capacity" not in msg.lower() and st not in (429, 500, 503):
-            sys.exit(1)  # error de verdad (no de falta de hueco): parar y avisar
+# Oracle limita las peticiones seguidas (error 429), así que en cada turno
+# se hace UN solo intento, rotando el tamaño: 4/24, 4/24, 2/12, 1/6...
+import time
+turn = int(time.time() // 300)
+ocpus, mem = [SIZES[0], SIZES[0], SIZES[1], SIZES[2]][turn % 4]
+ad = ads[turn % len(ads)]
+body = {"availabilityDomain": ad["name"], "compartmentId": TENANCY, "displayName": NAME,
+        "shape": "VM.Standard.A1.Flex", "shapeConfig": {"ocpus": ocpus, "memoryInGBs": mem},
+        "sourceDetails": {"sourceType": "image", "imageId": image},
+        "createVnicDetails": {"subnetId": subnet, "assignPublicIp": True},
+        "metadata": {"ssh_authorized_keys": SSH_KEY}}
+st, res = call("POST", f"{IAAS}/instances", body)
+if st in (200, 201):
+    print(f"¡CONSEGUIDO! {ocpus} OCPU / {mem} GB en {ad['name']}")
+    open(os.environ.get("GITHUB_OUTPUT", "/dev/null"), "a").write(f"done=new\nsize={ocpus} OCPU / {mem} GB\n")
+    sys.exit(0)
+msg = (res or {}).get("message", "")
+print(f"{ocpus}/{mem} en {ad['name']}: {st} {msg[:160]}")
+if "capacity" not in msg.lower() and st not in (429, 500, 503):
+    sys.exit(1)  # error de verdad (no de falta de hueco): parar y avisar
 print("Sin hueco esta vez. Lo vuelvo a intentar en el siguiente turno.")
