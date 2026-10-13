@@ -1,0 +1,30 @@
+name: Robot servidor Oracle
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+permissions:
+  issues: write
+concurrency: { group: robot, cancel-in-progress: false }
+jobs:
+  pedir-servidor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q cryptography
+      - id: robot
+        run: python3 robot.py
+        env:
+          OCI_PRIVATE_KEY: ${{ secrets.OCI_PRIVATE_KEY }}
+          OCI_TENANCY: ocid1.tenancy.oc1..aaaaaaaaftvtuwekzepupcp4mmlck6yg6gpglcdrntnxhuiv3s7bpc6mnv3a
+          OCI_USER: ocid1.user.oc1..aaaaaaaa7vyownrpg74e36ldpxe3a33uyd4yfu2fu3mcbddhsp2373j7gjba
+          OCI_FINGERPRINT: "87:c8:78:4a:32:2b:cd:00:4e:df:ab:a2:64:ff:a3:ba"
+      - name: Avisar por correo (abre un aviso en GitHub)
+        if: steps.robot.outputs.done == 'new'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo,
+              title: "✅ ¡Servidor de Oracle conseguido!",
+              body: "El robot ha creado `cestalista-server` (${{ steps.robot.outputs.size }}). Avisa a Claude para seguir." });
