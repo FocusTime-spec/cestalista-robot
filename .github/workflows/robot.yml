@@ -1,7 +1,7 @@
 name: Robot servidor Oracle
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
 permissions:
   issues: write
@@ -9,7 +9,7 @@ concurrency: { group: robot, cancel-in-progress: false }
 jobs:
   pedir-servidor:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q cryptography
