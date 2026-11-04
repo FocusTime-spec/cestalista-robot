@@ -9,7 +9,10 @@ if [ -d "$APP/.git" ]; then git -C "$APP" fetch -q origin main && git -C "$APP" 
 else git clone -q git@github.com:FocusTime-spec/cestalista.git "$APP"; fi
 echo "   Versión: $(git -C "$APP" log -1 --format='%h %s' | cut -c1-70)"
 echo "[2/5] Instalando dependencias (tarda unos minutos)..."
-cd "$APP" && npm ci --no-audit --no-fund --loglevel=error >/dev/null
+# Vercel instala con bun (bun.lock), así que usamos lo mismo para tener las mismas versiones.
+[ -x ~/.bun/bin/bun ] || { curl -fsSL https://bun.sh/install | bash >/dev/null 2>&1; }
+export PATH="$HOME/.bun/bin:$PATH"
+cd "$APP" && { bun install --frozen-lockfile >/tmp/cl-install.log 2>&1 || bun install >>/tmp/cl-install.log 2>&1 || { tail -20 /tmp/cl-install.log; echo "   ERROR instalando."; exit 1; }; }
 echo "[3/5] Construyendo la app..."
 cp "$ENVF" "$APP/.env.production"
 NITRO_PRESET=node-server npx vite build > /tmp/cl-build.log 2>&1 || { tail -25 /tmp/cl-build.log; echo "   ERROR al construir."; exit 1; }
