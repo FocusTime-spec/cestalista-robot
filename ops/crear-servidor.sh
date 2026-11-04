@@ -8,7 +8,7 @@ NAME="cestalista-servidor"; OCPUS="${OCPUS:-3}"; MEM="${MEM:-18}"
 T="${OCI_TENANCY:?No encuentro OCI_TENANCY: abre esto dentro de la Cloud Shell de Oracle}"
 echo "1/5 Llave SSH..."
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
-[ -f ~/.ssh/cestalista ] || ssh-keygen -t ed25519 -N "" -C cestalista-cloudshell -f ~/.ssh/cestalista -q
+[ -f ~/.ssh/cestalista ] || ssh-keygen -t rsa -b 4096 -N "" -C cestalista-cloudshell -f ~/.ssh/cestalista -q
 echo "   OK (~/.ssh/cestalista)"
 echo "2/5 Compruebo que no exista ya..."
 YA=$(oci compute instance list -c "$T" --display-name "$NAME" --query "data[?\"lifecycle-state\"!='TERMINATED'] | length(@)" --raw-output 2>/dev/null || echo 0)
