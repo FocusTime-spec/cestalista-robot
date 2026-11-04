@@ -28,9 +28,8 @@ After=network-online.target
 [Service]
 User=ubuntu
 WorkingDirectory=$APP
-EnvironmentFile=$ENVF
 Environment=NODE_ENV=production PORT=3000 HOST=127.0.0.1
-ExecStart=/usr/bin/node $APP/.output/server/index.mjs
+ExecStart=/usr/bin/node --env-file=$ENVF $APP/.output/server/index.mjs
 Restart=always
 RestartSec=3
 [Install]
