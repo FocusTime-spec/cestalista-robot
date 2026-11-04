@@ -5,7 +5,7 @@ T="${OCI_TENANCY:?Abre esto dentro de la Cloud Shell de Oracle}"
 IP=$(cat ~/.cestalista-ip)
 echo "1/3 Pruebo a entrar en el servidor nuevo ($IP)..."
 for i in 1 2 3 4 5 6; do
-  if ssh -i ~/.ssh/cestalista -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 ubuntu@"$IP" 'echo "   Dentro: $(hostname), $(nproc) procesadores, $(free -g | awk "/Mem/{print \$2}") GB"'; then OK=1; break; fi
+  if ssh -n -i ~/.ssh/cestalista -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 ubuntu@"$IP" 'echo "   Dentro: $(hostname), $(nproc) procesadores, $(free -g | awk "/Mem/{print \$2}") GB"'; then OK=1; break; fi
   echo "   Aún arrancando, espero 20 s..."; sleep 20
 done
 [ "${OK:-0}" = 1 ] || { echo "   NO puedo entrar todavía. No borro nada. Manda captura a Claude."; exit 1; }
