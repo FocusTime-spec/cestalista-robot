@@ -1,7 +1,6 @@
 name: Robot servidor Oracle
+# Apagado el 04/11/2026: el servidor ya existe (cestalista-servidor). Solo se lanza a mano.
 on:
-  schedule:
-    - cron: "*/30 * * * *"
   workflow_dispatch:
 permissions:
   issues: write
