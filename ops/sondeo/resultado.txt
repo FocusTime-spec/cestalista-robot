@@ -1,164 +1,72 @@
 
-===== Dia https://www.dia.es/
-portada: 403 362
+===== Consum
+  [] ... (v) { return v === undefined || v === null || v === ''; })) return null;             var width = window.innerWidth;             var params = [               ['zoneId', String(general.defaultZoneId)],               ['shippingZoneId', String(general.defaultShippingZoneId)],               ['shippingMethod', String(general.defa...
+  [] ...})) return null;             var width = window.innerWidth;             var params = [               ['zoneId', String(general.defaultZoneId)],               ['shippingZoneId', String(general.defaultShippingZoneId)],               ['shippingMethod', String(general.defaultShippingMethod || 'D')],               ['zipCode', String(gene...
+  [] ...     ['shippingZoneId', String(general.defaultShippingZoneId)],               ['shippingMethod', String(general.defaultShippingMethod || 'D')],               ['zipCode', String(general.defaultZipCode)],               ['login', 'false'],               ['partner', 'false'],               ['device', 'web'],               ['size'...
+  [main-LCQYPPOO.js] ...,u as xs,w as zs,x as D,y as $s}from"./chunk-VI2VOVRS.js";import{a as j,b as bt,c as Bs,f}from"./chunk-EQDQRRRY.js";var Bt=function(i){return i.ShippingZoneId="shippingZoneId",i.ZipCode="zipCode",i}(Bt||{});var zt=(()=>{class i{constructor(e,r,n,s,o,a,c,u,d,h,b,v){this.shippingService=e,this.userService=r,this.addressesService=n,thi...
+  [main-LCQYPPOO.js] ...s $s}from"./chunk-VI2VOVRS.js";import{a as j,b as bt,c as Bs,f}from"./chunk-EQDQRRRY.js";var Bt=function(i){return i.ShippingZoneId="shippingZoneId",i.ZipCode="zipCode",i}(Bt||{});var zt=(()=>{class i{constructor(e,r,n,s,o,a,c,u,d,h,b,v){this.shippingService=e,this.userService=r,this.addressesService=n,this.formUserUnloggedSe...
+  [main-LCQYPPOO.js] ...LSearchParams(this.document.location.search),n=r.get(Bt.ShippingZoneId)??void 0,s=r.get(Bt.ZipCode)??void 0,o=!!(n||s);return e&&!o?(this.shippingService.init({shippingZoneId:e.shippingZoneId,zoneId:e.zoneId,zipCode:e.zipCode,deliveryTypeId:e.shippingMethod}),this.formUserUnloggedService.setModalIsOpenByUser(!0),this.formUserUnlogge...
+  [main-LCQYPPOO.js] ...s.document.location.search),n=r.get(Bt.ShippingZoneId)??void 0,s=r.get(Bt.ZipCode)??void 0,o=!!(n||s);return e&&!o?(this.shippingService.init({shippingZoneId:e.shippingZoneId,zoneId:e.zoneId,zipCode:e.zipCode,deliveryTypeId:e.shippingMethod}),this.formUserUnloggedService.setModalIsOpenByUser(!0),this.formUserUnloggedService.setEntry...
+  [main-LCQYPPOO.js] ...tion.search),n=r.get(Bt.ShippingZoneId)??void 0,s=r.get(Bt.ZipCode)??void 0,o=!!(n||s);return e&&!o?(this.shippingService.init({shippingZoneId:e.shippingZoneId,zoneId:e.zoneId,zipCode:e.zipCode,deliveryTypeId:e.shippingMethod}),this.formUserUnloggedService.setModalIsOpenByUser(!0),this.formUserUnloggedService.setEntryZipCode...
+  [main-LCQYPPOO.js] ...ch),n=r.get(Bt.ShippingZoneId)??void 0,s=r.get(Bt.ZipCode)??void 0,o=!!(n||s);return e&&!o?(this.shippingService.init({shippingZoneId:e.shippingZoneId,zoneId:e.zoneId,zipCode:e.zipCode,deliveryTypeId:e.shippingMethod}),this.formUserUnloggedService.setModalIsOpenByUser(!0),this.formUserUnloggedService.setEntryZipCode(!0)):e||...
+  [main-LCQYPPOO.js] ....get(Bt.ShippingZoneId)??void 0,s=r.get(Bt.ZipCode)??void 0,o=!!(n||s);return e&&!o?(this.shippingService.init({shippingZoneId:e.shippingZoneId,zoneId:e.zoneId,zipCode:e.zipCode,deliveryTypeId:e.shippingMethod}),this.formUserUnloggedService.setModalIsOpenByUser(!0),this.formUserUnloggedService.setEntryZipCode(!0)):e||this.shi...
+  [main-LCQYPPOO.js] ...ippingZoneId)??void 0,s=r.get(Bt.ZipCode)??void 0,o=!!(n||s);return e&&!o?(this.shippingService.init({shippingZoneId:e.shippingZoneId,zoneId:e.zoneId,zipCode:e.zipCode,deliveryTypeId:e.shippingMethod}),this.formUserUnloggedService.setModalIsOpenByUser(!0),this.formUserUnloggedService.setEntryZipCode(!0)):e||this.shippingServi...
+  [main-LCQYPPOO.js] ...romUrl(n):s?this.handleZipCodeFromUrl(s):M(void 0)}getZipCodeByDeliveryType(e){return this.shippingService.isDeliveryMethod(e?.deliveryTypeId)?e.zone?.address?.zipCode:e.pickupPoint?.address?.zipCode}handleShippingZoneIdFromUrl(e){return this.addressesService.getAllAvailableShippingAreas().pipe(Ai(r=>{let n=r.flatMap(u=>u.shi...
+  [main-LCQYPPOO.js] ...omUrl(s):M(void 0)}getZipCodeByDeliveryType(e){return this.shippingService.isDeliveryMethod(e?.deliveryTypeId)?e.zone?.address?.zipCode:e.pickupPoint?.address?.zipCode}handleShippingZoneIdFromUrl(e){return this.addressesService.getAllAvailableShippingAreas().pipe(Ai(r=>{let n=r.flatMap(u=>u.shippingAreas??[]).find(u=>u.shippi...
+  [main-LCQYPPOO.js] ...ipCode}handleShippingZoneIdFromUrl(e){return this.addressesService.getAllAvailableShippingAreas().pipe(Ai(r=>{let n=r.flatMap(u=>u.shippingAreas??[]).find(u=>u.shippingZoneId===e),s=!!n,o=s?n?.deliveryTypeId:void 0,a=s?n?.zone?.id:void 0,c=s?this.getZipCodeByDeliveryType(n):void 0;s?(this.formUserUnloggedService.setModalIsOpenByUser...
 
-===== Consum https://tienda.consum.es/
-portada: 200 135655
-    shippingZoneId
-    zipCode
-    zoneId
+===== Masymas
+  [main.73f8cf49c110c364.js] ...utShow(),d=this.storageService.get(A.dx.AddressSelectedUnlogged);d?this.authenticationService.isLogged()||this.selectAddressService.setPickingMethodUnlogged(d?.zoneId,d.shippingMethod,d.zipCode,d.shippingZoneId):(s&&setTimeout(()=>{this.formUserUnloggedService.openModalAuto()&&!this.configService.getMandatoryModal()&&this.op...
+  [main.73f8cf49c110c364.js] ...s.selectedZipCode=w||null}saveAddressCookie(){this.selectAddressService.setAddresSelectedUnlogged({typeSelected:this.isDeliveryTabActive?b.mQ.Address:b.mQ.Shop,zoneId:this.selectedZone,shippingMethod:this.selectedShippingMethod,zipCode:this.selectedZipCode,shippingZoneId:this.shippingZoneId})}sendAnalyticsAccessZipCode(){con...
+  [main.73f8cf49c110c364.js] ....isDeviceScreen=this.deviceBreakpoints.some(zn=>zn===jt)})}saveAddressCookie(){this.selectAddressService.setAddresSelectedUnlogged({typeSelected:this.tabActive,zoneId:this.selectedZone,shippingMethod:this.selectedShippingMethod,zipCode:this.selectedZipCode,shippingZoneId:this.shippingZoneId})}sendAnalyticsAccessZipCode(){con...
+  [main.73f8cf49c110c364.js] ...Cart(E){try{this.searcherAnalyticaFactory.getBrowserProductsFromCart(E).forEach(I=>{this.empathyTAG.trackCheckout(I.terms,I.page,I.position,I.productId,E.order.zoneId,I.title,I.url,this.options(),()=>{})})}catch{this.putError(this.messageTrackCheckout)}}sendAnalyticProductClick(E){try{this.empathyTAG.trackClick(E.terms,E.pag...
+  [main.73f8cf49c110c364.js] ...Purchase(G){const be=this.adapterOrderDetail(G);return{transaction_id:String(G.order.orderId),postal_code:G.delivery.address.zipCode,affiliation:String(G.order.zoneId),value:String(te.getPriceProduct(G.summary.amount)),shipping:String(te.getPriceProduct(G.summary.deliveryExpenses)),currency:this.localeService.getCurrentCurre...
+  [main.73f8cf49c110c364.js] ...e:"")}),(0,t.A)(function b(le){return le&&le.length?(0,m.A)(le):[]}(me),",")}adapterOrderDetail(G){const be=G.productDetail.productCategories,me=String(G.order.zoneId),nt=[];return be.forEach(Ke=>{Ke.products.forEach(Ee=>{const ct=Ee.product.productData.attributes;let Ct=0;Ct=Ee.product.productType===w.PH.Peso?Ee.product.pri...
+  [main.73f8cf49c110c364.js] ...itionalOrder(N){N&&!this.orderService.isOrderDelivered(N)?(this.apModeService.setOrderDetail(N),this.orderService.checkAddProductsOrder(N.order.orderId,N.order.zoneId).subscribe({next:()=>{this.openModal(N)},error:X=>{this.openModalError(X)}})):this.openModalError(null)}exitAPMode(){const N=this.staticsFactory.createStaticsP...
+  [main.73f8cf49c110c364.js] ...){return this.initialized}selectMethod(X){const L=this.shippingService.getShippingMethodByString(X.delivery.deliveryMethod),ee=X.order.shippingZoneId,K=X.order.zoneId,re=X.delivery.address.zipCode;if(this.shippingService.isDeliveryMethod(L)){const W=this.userService.getDeliveryAddresses()?.find(te=>this.equalsAddress(te,X.de...
+  [main.73f8cf49c110c364.js] ...electedUnlogged(X){this.storageService.set(M.dx.AddressSelectedUnlogged,X)}setDeliveryMethod(X,L,ee,K,re=!1){this.setDeliveryOrPickingMethod$.next({addressId:X,zoneId:L,zipCode:ee,shippingZoneId:K,manual:re,shippingMethod:f.a.ShippingMethodEnum.D})}setInitialized(X){this.initialized=X}setLastDeliveryAddress(X,L){const ee=thi...
+  [main.73f8cf49c110c364.js] ...v1_0}/user/${Z}/deliveryaddress/${N}/select`)(K,X),re,{headers:ee})}setPickingMethod(X,L=f.a.ShippingMethodEnum.T,ee=!1){this.setDeliveryOrPickingMethod$.next({zoneId:X.zone?.id,shippingZoneId:X.shippingZoneId,zipCode:X.pickupPoint?.address?.zipCode,manual:ee,shippingMethod:L,shippingZone:X})}setPickingMethodUnlogged(X,L,ee,...
+  [main.73f8cf49c110c364.js] ...,ee=X.includes(",")?X.substring(X.indexOf("{"),X.length):"{}";this.navigationService.navigateToGrid(L,JSON.parse(ee))}}selectDeliveryMethodRequest(X){const L=X.zoneId,ee=X.addressId,K=X.zipCode,re=X.shippingZoneId,W=X.manual,te=X.shippingMethod;(L||0===L)&&(ee&&this.shippingService.setAddressId(ee),this.shippingService.setZo...
+  [main.73f8cf49c110c364.js] ...vice.getUserId();return this.shopApiService.post(((Z,N)=>`${M.k4.v1_0}/user/${Z}/store/${N}/select`)(ee,X),{},{headers:L})}setPickingMethodRequest(X){const L=X.zoneId,ee=X.shippingZoneId,K=X.shippingMethod,re=X.manual,W=X.shippingZone?.pickupPoint;(L||0===L)&&(this.shippingService.setShippingZoneId(ee),this.shippingService.s...
+  [main.73f8cf49c110c364.js] ...l)}setLastAddressInStorage(){this.storageService.get(m.dx.LastAddress)||this.storageService.set(m.dx.LastAddress,{addressId:this.shippingService.getAddressId(),zoneId:this.shippingService.getZoneId(),zipCode:this.shippingService.getZipCode(),shippingZoneId:this.shippingService.getShippingZoneId(),deliveryMethod:this.shipping...
+  [main.73f8cf49c110c364.js] ...this.storageService.get(m.dx.LastAddress);P&&(this.shippingService.isDeliveryMethod(P.deliveryMethod)?this.selectAddressService.setDeliveryMethod(P.addressId,P.zoneId,P.zipCode,P.shippingZoneId):this.selectAddressService.setPickingMethod({shippingZoneId:P.shippingZoneId,zone:{id:P.zoneId},pickupPoint:{address:{zipCode:P.zipC...
 
-===== Masymas https://tienda.masymas.com/
-portada: 200 23361
-    ${C.k4.v1_0}/commons/country/${fe}/region
-    ${C.k4.v1_0}/commons/country/${fe}/region/${le}
-    ${C.k4.v1_0}/commons/country/${fe}/region/${le}/city/${oe}
-    ${C.k4.v1_0}/commons/zipCode/${fe}/cities
-    ${C.k4.v1_0}/commons/zipCode/${fe}/region/${le}/city/${oe}
-    ${C.k4.v1_0}/commons/zipCode/validate
-    ${G.k4.v2_0}/shopping/cart/zone
-    ${m.k4.v1_0}/shipping/area/${E}/timezone
-    application/zip
-    modal/form-zip
-    zone.js/plugins/task-tracking
+===== Alcampo
+  [] ...temGroups":[{"items":[]}],"loyalty":null,"orderId":null,"checkoutCorrelationId":null,"activeCheckoutGroupId":null,"orderLevelPromotions":[],"preparation":null,"regionId":"ac90d761-9d58-4918-a37d-dd14e1ce384a","remainingTimeToEditInMillis":null,"removedPaymentChecks":null,"smallOrder":null,"nextAvailableSlot":null,"unavailableD...
+  [] ...items":[],"itemGroups":[],"loyalty":null,"orderId":null,"checkoutCorrelationId":null,"activeCheckoutGroupId":null,"orderLevelPromotions":[],"preparation":null,"regionId":null,"remainingTimeToEditInMillis":null,"removedPaymentChecks":null,"smallOrder":null,"nextAvailableSlot":null,"unavailableData":[],"checkoutGroups":[],"unass...
+  [] ...mount":null},"error":null,"fetchError":false,"isFetching":false},"createdRefundRequest":{"anyItemAvailableForRefund":false,"newRefundRequestCreationCutoff":"","regionId":"","requestedItems":[],"error":null,"fetchError":false,"isFetching":false},"newRefundRequest":{"regionId":"","availableItems":[],"refundReasonsPerCategory":[]...
+  [] ...ForRefund":false,"newRefundRequestCreationCutoff":"","regionId":"","requestedItems":[],"error":null,"fetchError":false,"isFetching":false},"newRefundRequest":{"regionId":"","availableItems":[],"refundReasonsPerCategory":[],"error":null,"fetchError":false,"isFetching":false},"placeRefundRequest":{"refundRequestId":null,"expecte...
+  [] ...0506-72ec-4543-93c8-a77bb916ec12","retailerBannerId":"alcampo","bannerName":"Alcampo","bannerBusinessModel":"CENTRALIZED","fqdn":"www.compraonline.alcampo.es","regionId":"ac90d761-9d58-4918-a37d-dd14e1ce384a","retailerRegionId":"5","regionName":"Vaguada","environment":"auc-prd","reportingLevel":1},"additionalDetails":{"isFetch...
+  [] ...d":"alcampo","bannerName":"Alcampo","bannerBusinessModel":"CENTRALIZED","fqdn":"www.compraonline.alcampo.es","regionId":"ac90d761-9d58-4918-a37d-dd14e1ce384a","retailerRegionId":"5","regionName":"Vaguada","environment":"auc-prd","reportingLevel":1},"additionalDetails":{"isFetching":false,"fetchError":false,"didInvalidate":false,"lastU...
+  [index-GDpj3WIF.js] ...l,fetchError:!1,isFetching:!1},Lu={selectedItems:[],refundValueBreakdown:{taxComponents:[],net:null,gross:null,displayAmount:null},...bu},O_={newRefundRequest:{regionId:"",availableItems:[],refundReasonsPerCategory:[],...bu},summary:Lu,createdRefundRequest:{anyItemAvailableForRefund:!1,newRefundRequestCreationCutoff:"",regionI...
+  [index-GDpj3WIF.js] ...egionId:"",availableItems:[],refundReasonsPerCategory:[],...bu},summary:Lu,createdRefundRequest:{anyItemAvailableForRefund:!1,newRefundRequestCreationCutoff:"",regionId:"",requestedItems:[],...bu},placeRefundRequest:{refundRequestId:null,expectedRequestReviewTime:null,...bu}},Ge={isFetching:!1,fetchError:!1,didInvalidate:!1,la...
+  [index-GDpj3WIF.js] .....Ge,locationChangeCount:0,isFullPageLoad:!0,isServerRendered:!1,hasPageBeenHidden:!1,reportingLevel:0,assetVersion:"",environment:"",bannerId:"",bannerName:"",regionId:"",clientRouteId:"",requestId:"",visitorId:"",fqdn:"",userJustLoggedIn:!1,userJustRegistered:!1},eD={CENTRALIZED:"CENTRALIZED",STORE:"STORE"},z$=(t=Y$,e)=>{swi...
+  [index-GDpj3WIF.js] ...red,uo=({session:t})=>t.metadata.customerId,io=({session:t})=>t.metadata.retailerCustomerId,Ko=({session:t})=>t.metadata.visitorId,Qn=({session:t})=>t.metadata.regionId,tD=({session:t})=>t.metadata.retailerRegionId,nD=({session:t})=>t.metadata.regionName,W$=({session:t})=>t.metadata.requestId,wi=({session:t})=>t.metadata.banne...
+  [index-GDpj3WIF.js] ...merId,io=({session:t})=>t.metadata.retailerCustomerId,Ko=({session:t})=>t.metadata.visitorId,Qn=({session:t})=>t.metadata.regionId,tD=({session:t})=>t.metadata.retailerRegionId,nD=({session:t})=>t.metadata.regionName,W$=({session:t})=>t.metadata.requestId,wi=({session:t})=>t.metadata.bannerId,Bo=({session:t})=>t.metadata.retailerBanne...
+  [index-GDpj3WIF.js] ...ollections,"^/recipes/collections/[^/]+/[^/]+$":Hs.RecipeCollectionDetails},lK={"^/orders/[^/]*/refund-request":"REFUNDS"},cK={"^/regulars$":"REGULARS"},dK={"^/products/search$":"SEARCH","^/search$":"SEARCH","^/natural-language-search$":"NL_SEARCH"},mK={"^/shop-in-shop/[^/]*$":"SHOP_IN_SHOP"},uK={"^/lists$":"LISTS","^/lists/[^/]*$":"...
+  [index-GDpj3WIF.js] ...[],invoice:null,items:[],itemGroups:[],loyalty:null,orderId:null,checkoutCorrelationId:null,activeCheckoutGroupId:null,orderLevelPromotions:[],preparation:null,regionId:null,remainingTimeToEditInMillis:null,removedPaymentChecks:null,smallOrder:null,nextAvailableSlot:null,unavailableData:[],checkoutGroups:[],unassignedItems:[],...
+  [index-GDpj3WIF.js] ...M).format(),end:we(O,we.ISO_8601).tz(M).format(),utcStartTime:R,utcEndTime:O}};return{basketId:n??null,checkoutCorrelationId:a||null,activeCheckoutGroupId:null,regionId:null,items:k(I),itemGroups:h(I,s),orderLevelPromotions:l??[],appliedPaymentChecks:null,removedPaymentChecks:null,loyalty:u??null,basketStatus:null,ageRestricti...
 
-===== BM https://www.online.bmsupermercados.es/
-portada: 200 59865
+===== Gadis
+  [] ...dateEnd":null,"description":"","icon":"","iconUrl":null,"iconPath":null,"image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":0,"storeId":null,"hasPrincipalPage":null},{"type":"WebElementMenuLinkAction","actionToTake":"SIGNUPMODAL","id":"8cbd757f-88ad-460e-b5f0-6147645162d5","name":"Regístrate",...
+  [] ...dateEnd":null,"description":"","icon":"","iconUrl":null,"iconPath":null,"image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":1,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"a23dabf3-3b98-4bd4-851f-af4dfe7200a0","name":"Header/Mi ...
+  [] ...null,"iconPath":null,"image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":1,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"a23dabf3-3b98-4bd4-851f-af4dfe7200a0","name":"Header/Mi cuenta","published":true,"dateInit":"2025-01-17 16:...
+  [] ...3-8516-66ee9738f505","iconPath":"/images/iconos/web/footer/help.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":[{"id":"917b6626-777a-4415-b6ed-e8999830bba3","slug":"/pag/mi-cuent...
+  [] .../footer/help.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":[{"id":"917b6626-777a-4415-b6ed-e8999830bba3","slug":"/pag/mi-cuenta/mis-datos"}],"id":"0a484d04-3c97-45c1-93b6-93d63e...
+  [] ...3-8516-66ee9738f505","iconPath":"/images/iconos/web/footer/help.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"c37f5729-c6fe-4129-a2ca-5c61f086fc79","name":"Modal prev...
+  [] .../footer/help.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"c37f5729-c6fe-4129-a2ca-5c61f086fc79","name":"Modal previa al registro para sugerir login","published":true...
+  [] ...acc-57b27987f8a0","iconPath":"/images/iconos/web/footer/bag-xxs.svg","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null},{"type":"WebElementMenuLinkPage","webElementPageId":"cdc60b76-082f-49f6-a7fa-17d6ffbde4f1","sameTab":true,"isPrincipal":false,"m...
+  [] ...-a38b-974baad71474","iconPath":"/images/iconos/web/footer/truck.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null},{"type":"WebElementMenuLinkPage","webElementPageId":"c0953ef2-573d-4fe8-943c-1c195d4149cc","sameTab":true,"isPrincipal":false,"m...
+  [] ...9-9d39-f0daaf77b723","iconPath":"/images/iconos/web/footer/cart.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"ab92c2f9-7a98-4298-9b89-40d316c205ef","name":"Menú Proce...
+  [] .../footer/cart.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":null,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"ab92c2f9-7a98-4298-9b89-40d316c205ef","name":"Menú Proceso de compra","published":true,"dateInit":"2025-03-...
+  [] ...-41cc-af9e-e28bfab87493","iconPath":"/images/iconos/web/footer/pen.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":1,"storeId":null,"hasPrincipalPage":null},{"type":"WebElementMenuLinkPage","webElementPageId":"1adc6c2c-e9ce-40e4-9b8a-e23c237d5d73","sameTab":true,"isPrincipal":false,"m...
+  [] ...43e3-a499-81c292bb8ae8","iconPath":"/images/iconos/web/footer/star.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":2,"storeId":null,"hasPrincipalPage":null},{"type":"WebElementMenuLinkPage","webElementPageId":"917b6626-777a-4415-b6ed-e8999830bba3","sameTab":true,"isPrincipal":false,"m...
+  [] ...4820-8744-c00e9b210cc2","iconPath":"/images/iconos/web/footer/user.png","image":"","imageUrl":null,"imagePath":null,"audit_metadata":null,"links":[],"order":0,"storeId":null,"hasPrincipalPage":null}],"order":0,"storeId":null,"hasPrincipalPage":false}],"pages":null,"id":"7a115978-3538-4903-95aa-bc2d1ed0acc2","name":"Menú Mi cu...
 
-===== Alcampo https://www.compraonline.alcampo.es/
-portada: 200 712804
-    /v3/address-lookup/by-postcode?countryCode=${e}
-    Almacenamiento
-    accessibility_delivery_datetime_range_multiday_zoned
-    accessibility_delivery_time_range_zoned
-    address.addressForm.postcodeInput
-    address.form.field.postalCode
-    address.form.field.zipCode
-    addresses.manual-form-map.postalCode
-    addresses.map-lookup.postcode-search-input-placeholder
-    addresses.postcode-lookup.continue
-    addresses.postcode-lookup.enter-address-manually
-    addresses.postcode-lookup.no-results-found
-    addresses.postcode-lookup.search
-    addresses.postcode-lookup.title
-    basket-live-region
-    bop.field.title.regionalInformation
-    customer-addresses-address-details-postal-code-validation
-    default-time-zone
-    delivery-datetime-format-zone
-    delivery-datetime-format-zone-accessibility
-    delivery.pass.benefit.group.select.region.title
-    delivery.pass.region.add.address.button.text
-    delivery.pass.region.see.passes.button.text
-    delivery.pass.region.select.address.scope.text
-    delivery.pass.region.select.subtitle
-    delivery.pass.region.select.validity.text
-    delivery_datetime_range_multiday_zoned
-    delivery_time_range_zoned
-    invoice.billing.address.postal.code.input.label
-    invoice.billing.postal.code.wrong.format.error
-    merge-cart-with-edit-order.unavailable-reason.outside-of-deliverable-time-zone
-    postcode_lookup_button_title
-    postcode_lookup_hint
-    postcode_lookup_manual_button_title
-    postcode_lookup_unreachable_address_error
-    postcode_lookup_validation_format_error
-    regionId
-    regionName
-    retailerRegionId
-    search_label_postcode_placeholder
-
-===== Ahorramas https://www.ahorramas.com/
-portada: 200 779577
-    /alimentacion/tomate-frito-salsas-y-especias/especias/otras-especias-y-sazonadores/
-    /frescos/pescado-y-mariscos/ahumados-y-salazones/
-    PostalAddress
-    ahumados_y_salazones
-    contact-lpostal-code
-    contact-postal-code
-    contactPostalCode
-    find-postal-code
-    form-contact-postal-code-error
-    otras_especias_y_sazonadores
-    postal-code-icon
-    postalCode
-
-===== HiperDino https://www.hiperdino.es/
-portada: 200 811987
-    .dialogBox-modal-postcode
-    Hiperdino_FreeNavigation/js/view/postcode-modal
-    Magento_Checkout/js/region-updater
-    Magento_Directory/js/region-updater
-    checkSopladeraPostcode
-    dialogBox-modal-postcode
-    dialogBox-modal-sopladera-postcode
-    hdPostcodeModal
-    hd_postcode_modal
-    postcode
-    postcode-form
-    postcode-modal
-    postcodePickupShop
-    searchZone
-    showPostcodeModal
-    sopladera-postcode-form
-    storeId
-
-===== Froiz https://supermercado.froiz.com/
-portada: 403 5658
-
-===== Carrefour https://www.carrefour.es/supermercado
-portada: 403 5671
-
-===== Caprabo https://www.capraboacasa.com/
-portada: 403 134
-
-===== Gadis https://www.gadisline.com/
-portada: 200 1161134
-    /alimentacion/sal-especias-y-sazonadores
-    /alimentacion/sal-especias-y-sazonadores/especias
-    /alimentacion/sal-especias-y-sazonadores/pimenton-y-colorante
-    /alimentacion/sal-especias-y-sazonadores/sal
-    /alimentacion/sal-especias-y-sazonadores/sazonadores
-    /api/config/checkPostalCode
-    /masters/large-family-zones
-    /masters/postal-codes
-    /postal-codes
-    /promotions/postal-codes
-    /storeZones
-    /storeZones/
-    /stores/postal-codes/
-    /stores/postal-codes/delivery
-    GENERIC_constantPostalCode
-    GENERIC_deliveryAreaIncident
-    GENERIC_invalidpostalcode
-    GENERIC_invalidpostalcodeformat
-    GENERIC_myAddressesPostalCode
-    GENERIC_postalCodeNotAllowed
-    GENERIC_postalCodeNotExists
-    GENERIC_postalcode
-    GENERIC_postalcode_short
-    GENERIC_redirectionByPostcode_access
-    GENERIC_redirectionByPostcode_placeholder
-    GENERIC_showZipCodeNotAvailable
-    GENERIC_zipCodeInvalid
-    Sazonadores
-    application/x-zip-compressed
-    application/zip
-    currentPostalCode
-    storeId
-
-===== Aktios (Consum/Masymas/BM)
-https://tienda.consum.es (200, [('Leche Entera Brik', 0.96), ('Leche Calcio Semidesnatada Brik', 1.05), ('Leche Semidesnatada Brik', 0.83)], ['catalog', 'facets', 'attributesSearcher'])
-  postalcode/46001: 404 {"meta":{"code":404},"traceId":"273341b4bbac97924b06834e3d838584"}
-https://tienda.masymas.com (200, [('Bebida Láctea Omega3 Con Nueces', 1.95), ('Bebida Láctea Energía y Crecimiento Con Cereales', 1.89), ('Preparado Lácteo Peques 3 Cereales Frutas Desde 12', 1.99)], ['catalog', 'facets', 'attributesSearcher'])
-  postalcode/46001: 500 {"meta":{"code":500}}
-https://www.online.bmsupermercados.es (200, [('Leche sin lactosa entera 1 l', 1.39), ('Leche entera 1 l', 1.15), ('Leche entera 1 l', 1.25)], ['catalog', 'facets', 'attributesSearcher'])
-  postalcode/46001: 404 {"meta":{"code":404},"traceId":"f7e28ddd257f771aab23f2534a7d5be0"}
-
-===== Dia directo
-403 <HTML><HEAD> <TITLE>Access Denied</TITLE> </HEAD><BODY> <H1>Access Denied</H1>   You don't have permission to access "http&#58;&#47;&#47;www&#46;dia&#46;es&#47;api&#47;v1&#47;search&#45;back&#47;search&#63;" on this server.<P> Reference&#32;&#35;18&#46;da521cb8&#46;1793903391&#46;287aad64 <P>https&#
-
-===== Alcampo (Ocado)
-https://www.compraonline.alcampo.es/api/v5/products/search?term=leche&limit=3 404 <!doctype html> <html lang="es-ES" dir="ltr" data-theme="light">     <head>         <meta http-equiv="X-UA-Compatible" content="ie=edge" />         <meta charset="utf-8" />         <meta name="viewport" content="width=device-width, initial-scale=1.0"
-https://www.compraonline.alcampo.es/api/webproductpagews/v5/products/bop?retailerProductIds=1 400 {"message":"Unhandled exception","moreInfo":"","args":null,"timestamp":"2026-11-05T18:29:53.192629998Z","code":"CC-001","httpStatus":400}
-https://www.compraonline.alcampo.es/api/v1/postcode/28001 404 <!doctype html> <html lang="es-ES" dir="ltr" data-theme="light">     <head>         <meta http-equiv="X-UA-Compatible" content="ie=edge" />         <meta charset="utf-8" />         <meta name="viewport" content="width=device-width, initial-scale=1.0"
+===== HiperDino
+  [] ...,"groupSymbol":".","groupLength":3,"integerRequired":false},"minSearchLength":0,"url":"https:\/\/www.hiperdino.es\/c9504\/searchautocomplete\/ajax\/suggest\/","storeId":"15","delay":300,"isAjaxCartButton":false,"isShowCartButton":false,"isShowImage":true,"isShowPrice":true,"isShowSku":false,"isShowRating":true,"isShowDescript...
+  [] ...postal:                        </div>                     </div>                      <div class="dialogBox__title flex-item">                         <div id="postcodePickupShop" class="title__text">                         </div>                     </div>                      <div class="dialogBox__description flex-item">            ...
+  [] ...ch_term_string}",      "query-input": "required name=search_term_string"    } } </script> <script type="text/x-magento-init">     {         "*": {             "doofinderInit": {                 "apiKey": "98bc6bfc3b241d1e43c90f646cfb077d",                 "searchZone": "eu1"             }         }     } </script><script type="...
+  [] ... type="text/x-magento-init">     {         "*": {             "doofinderInit": {                 "apiKey": "98bc6bfc3b241d1e43c90f646cfb077d",                 "searchZone": "eu1"             }         }     } </script><script type="text/x-magento-init">     {         "*": {             "doofinderAutocomplete": {                 ...
+  [] ...0f646cfb077d",                 "searchZone": "eu1"             }         }     } </script><script type="text/x-magento-init">     {         "*": {             "doofinderAutocomplete": {                 "searchInputId": "#search-input, #search-mobile-input",                 "autocompleteDesktopId": "#search-autocomplete-desktop"...
+  [] ...top",                 "autocompleteMobileId": "#search-autocomplete-mobile",                 "autocompleteUrl": "https://www.hiperdino.es/c9504/hiperdino_searchdoofinder/autocomplete/index/",                 "autocompleteContainer": ".search-autocomplete-container",                 "autocompleteResult":".search-autocomplete-res...
