@@ -19,8 +19,14 @@ export PATH="$HOME/.bun/bin:$PATH"
 cd "$APP" && { bun install --frozen-lockfile >/tmp/cl-install.log 2>&1 || bun install >>/tmp/cl-install.log 2>&1 || { tail -20 /tmp/cl-install.log; echo "   ERROR instalando."; exit 1; }; }
 echo "[3/5] Construyendo la app..."
 cp "$ENVF" "$APP/.env.production"
-NITRO_PRESET=node-server npx vite build > /tmp/cl-build.log 2>&1 || { tail -25 /tmp/cl-build.log; echo "   ERROR al construir."; exit 1; }
+NITRO_PRESET=node-server npx vite build > /tmp/cl-build.log 2>&1 || { rm -f "$APP/.env.production"; tail -25 /tmp/cl-build.log; echo "   ERROR al construir."; exit 1; }
 rm -f "$APP/.env.production"
+# La versión nueva se prepara aparte (releases/<versión>) y se cambia de golpe:
+# la que está funcionando no se toca hasta el último momento (sin cortes).
+D=/srv/cestalista; SHA=$(git -C "$APP" rev-parse --short HEAD)
+mkdir -p $D/releases
+rm -rf "$D/releases/$SHA.tmp" && cp -a "$APP/.output" "$D/releases/$SHA.tmp" && rm -rf "$D/releases/$SHA" && mv "$D/releases/$SHA.tmp" "$D/releases/$SHA"
+PREV=$(readlink -f $D/current 2>/dev/null || true)
 echo "[4/5] Creando el servicio..."
 sudo tee /etc/systemd/system/cestalista.service >/dev/null <<UNIT
 [Unit]
@@ -28,21 +34,33 @@ Description=CestaLista (app)
 After=network-online.target
 [Service]
 User=ubuntu
-WorkingDirectory=$APP
+WorkingDirectory=$D/current
 Environment=NODE_ENV=production PORT=3000 HOST=127.0.0.1
-ExecStart=/usr/bin/node --env-file=$ENVF $APP/.output/server/index.mjs
+ExecStart=/usr/bin/node --env-file=$ENVF $D/current/server/index.mjs
 Restart=always
 RestartSec=3
 [Install]
 WantedBy=multi-user.target
 UNIT
+ln -sfn "$D/releases/$SHA" $D/current
 sudo systemctl daemon-reload && sudo systemctl enable -q cestalista && sudo systemctl restart cestalista
 echo "[5/5] Comprobando..."
-sleep 5
+OK=""
+for i in $(seq 1 20); do
+  [ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 http://127.0.0.1:3000/proximamente)" = "200" ] && OK=1 && break
+  sleep 2
+done
+if [ -z "$OK" ] && [ -n "$PREV" ] && [ -d "$PREV" ]; then
+  echo "   La versión nueva no arranca: vuelvo a la anterior."
+  ln -sfn "$PREV" $D/current && sudo systemctl restart cestalista
+  exit 1
+fi
 for p in / /proximamente /guias /api/public/recipes; do
   printf "   %-22s %s\n" "$p" "$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 http://127.0.0.1:3000$p)"
 done
+# Guardamos solo las 3 últimas versiones.
+ls -1dt $D/releases/*/ 2>/dev/null | tail -n +4 | xargs -r rm -rf
 echo ""
 echo "======================================"
-echo " APP INSTALADA EN EL SERVIDOR"
+echo " APP INSTALADA EN EL SERVIDOR ($SHA)"
 echo "======================================"
