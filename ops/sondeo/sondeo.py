@@ -1,4 +1,4 @@
-"""Sondeo 4: ¿cambia el precio en Consum/Masymas/BM con X-TOL-ZONE?"""
+"""Sondeo 5: CP -> tienda (zona) en Aktios y comparación de precios entre tiendas."""
 import json, urllib.request, ssl
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36"
 ctx = ssl.create_default_context()
@@ -13,30 +13,42 @@ def get(url, headers=None):
         return 0, str(e)[:200]
 out = []
 def p(*a): out.append(" ".join(str(x) for x in a))
-TERMS = ["leche", "platano", "pollo", "tomate", "aceite", "huevos"]
-def precios(base, headers):
+TERMS = ["leche", "platano", "pollo", "tomate", "aceite", "huevos", "manzana", "pan", "yogur", "atun"]
+def precios(base, zone=None):
     m = {}
     for q in TERMS:
-        st, b = get(f"{base}/api/rest/V1.0/catalog/searcher/products?q={q}&limit=15&offset=0", headers)
+        st, b = get(f"{base}/api/rest/V1.0/catalog/searcher/products?q={q}&limit=20&offset=0", {"X-TOL-ZONE": str(zone)} if zone else {})
         try:
             for x in json.loads(b)["catalog"]["products"]:
                 m[str(x.get("code") or x.get("id"))] = (x["productData"]["name"], x["priceData"]["prices"][0]["value"]["centAmount"])
         except Exception:
             pass
     return m
-for base in ["https://tienda.consum.es", "https://tienda.masymas.com", "https://www.online.bmsupermercados.es"]:
+def zona(base, cp):
+    for met in ("D", "T"):
+        st, b = get(f"{base}/api/rest/V1.0/shipping/area?zipCode={cp}&shippingMethod={met}")
+        try:
+            arr = json.loads(b)
+            for g in arr:
+                for a in g.get("shippingAreas", []):
+                    z = a.get("zone") or {}
+                    if z.get("id"): return met, z["id"], z.get("name"), a.get("shippingZoneId"), g.get("groupName")
+        except Exception:
+            pass
+    return None
+PLAN = {
+ "https://tienda.consum.es": ["46001", "08001", "30001", "03001", "12001", "02001", "43001", "17001"],
+ "https://tienda.masymas.com": ["46001", "33001", "03001", "30001", "24001", "02001"],
+ "https://www.online.bmsupermercados.es": ["28001", "48001", "20001", "01001", "31001", "39001"],
+}
+for base, cps in PLAN.items():
     p(f"\n===== {base}")
-    ref = precios(base, {})
-    p("sin zona:", len(ref), "productos")
-    for z in ["1", "2", "3", "4", "5", "6", "8", "10", "12", "15", "20", "25", "30", "40", "50", "100"]:
-        for hdr in ({"X-TOL-ZONE": z}, {"X-TOL-SHIPPING-ZONE": z}):
-            m = precios(base, hdr)
-            comunes = [k for k in m if k in ref]
-            dif = [f"{ref[k][0][:24]} {ref[k][1]}->{m[k][1]}" for k in comunes if m[k][1] != ref[k][1]]
-            p(f"  {list(hdr)[0]}={z}: {len(m)} prod, {len(comunes)} comunes, {len(dif)} distintos {dif[:3]}")
-    for path in ["/api/rest/V1.0/shipping/area?zipCode=46001", "/api/rest/V1.0/shipping/area?zipcode=46001",
-                 "/api/rest/V1.0/shipping/area?postalCode=46001", "/api/rest/V1.0/shipping/config",
-                 "/api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D", "/api/rest/V1.0/shipping/area?shippingMethod=T"]:
-        st, b = get(base + path)
-        p(f"  {path} -> {st} {b[:300]!r}")
+    ref = precios(base); p("sin zona:", len(ref), "productos")
+    for cp in cps:
+        z = zona(base, cp)
+        if not z: p(f"  {cp}: sin tienda"); continue
+        m = precios(base, z[1])
+        com = [k for k in m if k in ref]
+        dif = [f"{ref[k][0][:22]} {ref[k][1]}->{m[k][1]}" for k in com if m[k][1] != ref[k][1]]
+        p(f"  {cp} {z[4]} -> {z[0]} zona {z[1]} ({z[2]}): {len(m)} prod, {len(dif)}/{len(com)} distintos {dif[:3]}")
 open("ops/sondeo/resultado.txt", "w").write("\n".join(out))
