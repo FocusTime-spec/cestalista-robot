@@ -8,7 +8,7 @@ echo "Clave ScraperAPI: $(grep -q '^SCRAPERAPI_KEY=.\{8,\}' $D/.env && echo 'est
 echo "Créditos hoy: $(cat $D/scraperapi.json 2>/dev/null)"
 for s in dia hiperdino ahorramas; do
   printf "%-10s " "$s:"
-  curl -s -m 90 -w ' [%{http_code}, %{time_total}s]' "http://127.0.0.1:3000/api/public/$s?q=leche%20$RANDOM&limit=3" | tr -d '\n' | cut -c1-330; echo
+  curl -s -m 90 -w ' [%{http_code}, %{time_total}s]' "http://127.0.0.1:3000/api/public/$s?q=yogur%20natural&limit=3" | tr -d '\n' | cut -c1-330; echo
 done
 echo "Errores recientes de Dia:"
 sudo journalctl -u cestalista --since "-30 min" --no-pager -o cat | grep -i "dia" | grep -iv "diario\|media\|immedia" | tail -6 | cut -c1-250
