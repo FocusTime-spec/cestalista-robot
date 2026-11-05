@@ -15,3 +15,9 @@ Abre 80/443 en Oracle y, dentro del servidor (servidor-web.sh): cortafuegos, Cad
 para servidor.cestalista.com y actualización automática cada 5 min (cestalista-actualizar.timer,
 registro en /srv/cestalista/actualizar.log; si la versión nueva no se construye, vuelve a la anterior).
 Requiere antes en Porkbun: registro A `servidor` → IP del servidor.
+
+## Volver a Vercel (plan B) — valores de Porkbun ANTES del cambio (05/11/2026)
+- A    cestalista.com      → 216.198.79.1
+- CNAME www.cestalista.com → f4ab342c9416dc55.vercel-dns-017.com.
+(El resto de registros — correo ImprovMX, TXT, notify/_lovable — no se tocan.)
+Después del cambio: A cestalista.com → 51.170.36.221 · CNAME www → servidor.cestalista.com
