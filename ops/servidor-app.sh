@@ -5,7 +5,8 @@ set -euo pipefail
 APP=/srv/cestalista/app; ENVF=/srv/cestalista/.env
 [ -f "$ENVF" ] || { echo "Falta $ENVF (las claves). Para."; exit 1; }
 echo "[1/5] Descargando el código de GitHub..."
-if [ -d "$APP/.git" ]; then git -C "$APP" fetch -q origin main && git -C "$APP" reset -q --hard origin/main
+# REF permite volver a una versión anterior si la nueva no se puede construir.
+if [ -d "$APP/.git" ]; then git -C "$APP" fetch -q origin main && git -C "$APP" reset -q --hard "${REF:-origin/main}"
 else git clone -q git@github.com:FocusTime-spec/cestalista.git "$APP"; fi
 echo "   Versión: $(git -C "$APP" log -1 --format='%h %s' | cut -c1-70)"
 echo "[2/5] Instalando dependencias (tarda unos minutos)..."
