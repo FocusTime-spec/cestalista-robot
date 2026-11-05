@@ -1,123 +1,29 @@
 
 ===== https://tienda.consum.es
-sin zona: 90 productos
-  X-TOL-ZONE=1: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=1: 90 prod, 88 comunes, 0 distintos []
-  X-TOL-ZONE=2: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=2: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=3: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=3: 90 prod, 88 comunes, 0 distintos []
-  X-TOL-ZONE=4: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=4: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=5: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=5: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=6: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=6: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=8: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=8: 90 prod, 88 comunes, 0 distintos []
-  X-TOL-ZONE=10: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=10: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=12: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=12: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=15: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=15: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=20: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=20: 90 prod, 88 comunes, 0 distintos []
-  X-TOL-ZONE=25: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=25: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=30: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=30: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=40: 90 prod, 89 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=40: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=50: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=50: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=100: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=100: 90 prod, 90 comunes, 0 distintos []
-  /api/rest/V1.0/shipping/area?zipCode=46001 -> 500 '{"meta":{"code":500},"traceId":"41085d6dca1c68d29a689d89347e2b5a"}'
-  /api/rest/V1.0/shipping/area?zipcode=46001 -> 500 '{"meta":{"code":500},"traceId":"c284a77915883ffa7b52f2ec200b6204"}'
-  /api/rest/V1.0/shipping/area?postalCode=46001 -> 500 '{"meta":{"code":500},"traceId":"c65089c2b4bae0b4368c89695a897389"}'
-  /api/rest/V1.0/shipping/config -> 200 '[]'
-  /api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D -> 200 '[{"groupId":"region","groupName":"VALENCIA","shippingAreas":[{"shippingZoneId":"147D","deliveryTypeId":"D","enabled":true,"description":"IMPORT-147D","zone":{"id":147,"storeCode":"147","name":"Centro 147","contact":{"phone":"","email":""},"address":{"streetType":"Calle","street":"Calle Jesús","stree'
-  /api/rest/V1.0/shipping/area?shippingMethod=T -> 200 '[]'
+sin zona: 195 productos
+  46001 VALENCIA -> D zona 147 (Centro 147): 195 prod, 0/191 distintos []
+  08001 BARCELONA -> D zona 207 (Centro 207): 199 prod, 0/133 distintos []
+  30001 MURCIA -> D zona 495 (Centro 495): 195 prod, 0/178 distintos []
+  03001 ALICANTE -> D zona 154 (Centro 154): 195 prod, 0/179 distintos []
+  12001 CASTELLON -> D zona 1077 (Centro 1077): 195 prod, 0/191 distintos []
+  02001 ALBACETE -> D zona 1105 (Centro 1105): 195 prod, 0/180 distintos []
+  43001 TARRAGONA -> D zona 455 (Centro 455): 199 prod, 0/133 distintos []
+  17001 GERONA -> D zona 1088 (Centro 1088): 198 prod, 0/136 distintos []
 
 ===== https://tienda.masymas.com
-sin zona: 90 productos
-  X-TOL-ZONE=1: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=1: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=2: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=2: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=3: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=3: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=4: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=4: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=5: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=5: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=6: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=6: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=8: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=8: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=10: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=10: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=12: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=12: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=15: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=15: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=20: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=20: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=25: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=25: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=30: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=30: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=40: 90 prod, 89 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=40: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=50: 90 prod, 88 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=50: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=100: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=100: 90 prod, 90 comunes, 0 distintos []
-  /api/rest/V1.0/shipping/area?zipCode=46001 -> 500 '{"meta":{"code":500}}'
-  /api/rest/V1.0/shipping/area?zipcode=46001 -> 500 '{"meta":{"code":500}}'
-  /api/rest/V1.0/shipping/area?postalCode=46001 -> 500 '{"meta":{"code":500}}'
-  /api/rest/V1.0/shipping/config -> 200 '[]'
-  /api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D -> 200 '[{"groupId":"region","groupName":"Valencia/València","shippingAreas":[{"shippingZoneId":"T-011","deliveryTypeId":"D","enabled":true,"description":"Mislata","zone":{"id":11,"storeCode":"11","name":"Tienda 011 Mislata","contact":{"phone":"900777000","email":"mislata11@fornes.net"},"address":{"streetTy'
-  /api/rest/V1.0/shipping/area?shippingMethod=T -> 200 '[]'
+sin zona: 198 productos
+  46001 Valencia/València -> D zona 11 (Tienda 011 Mislata): 198 prod, 0/172 distintos []
+  33001: sin tienda
+  03001 Alicante/Alacant -> D zona 197 (T-197 Alicante (Isla Corfú)): 198 prod, 0/196 distintos []
+  30001: sin tienda
+  24001: sin tienda
+  02001: sin tienda
 
 ===== https://www.online.bmsupermercados.es
-sin zona: 90 productos
-  X-TOL-ZONE=1: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=1: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=2: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=2: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=3: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=3: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=4: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=4: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=5: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=5: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=6: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=6: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=8: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=8: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=10: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=10: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=12: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=12: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=15: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=15: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=20: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=20: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=25: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=25: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=30: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=30: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=40: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=40: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=50: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=50: 90 prod, 90 comunes, 0 distintos []
-  X-TOL-ZONE=100: 0 prod, 0 comunes, 0 distintos []
-  X-TOL-SHIPPING-ZONE=100: 90 prod, 90 comunes, 0 distintos []
-  /api/rest/V1.0/shipping/area?zipCode=46001 -> 500 '{"meta":{"code":500},"traceId":"ccec9ee2e6f98f6b527904848941460c"}'
-  /api/rest/V1.0/shipping/area?zipcode=46001 -> 500 '{"meta":{"code":500},"traceId":"3c13f47edca8ddd7760a1693583f54d6"}'
-  /api/rest/V1.0/shipping/area?postalCode=46001 -> 500 '{"meta":{"code":500},"traceId":"9f91923eb9bd36e0acaee7583a8bd203"}'
-  /api/rest/V1.0/shipping/config -> 200 '[]'
-  /api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D -> 200 '[]'
-  /api/rest/V1.0/shipping/area?shippingMethod=T -> 200 '[{"groupId":"region","groupName":"Araba/Álava","shippingAreas":[{"shippingZoneId":"14985T","deliveryTypeId":"T","enabled":true,"description":"BM LAKUA","zone":{"id":14985,"storeCode":"14985","name":"BM LAKUA","contact":{"phone":"","email":""},"address":{"streetType":"Avenida","street":"Antonio Macha'
+sin zona: 197 productos
+  28001 Madrid -> D zona 14959 (BM MARQUES DE ZAFRA): 197 prod, 11/114 distintos ['Platano de Canarias IG 4.19->3.99', 'Pollo limpio certifica 6.99->6.49', 'Pollo campero selecta  6.99->6.49']
+  48001 Bizkaia -> D zona 14982 (ZUBIARTE ONLINE): 197 prod, 1/132 distintos ['Alas de pollo bandeja  4.95->4.99']
+  20001 Gipuzkoa -> D zona 14990 (BM BIDEBIETA ONLINE): 197 prod, 0/160 distintos []
+  01001 Araba/Álava -> D zona 14985 (BM LAKUA): 197 prod, 1/140 distintos ['Alas de pollo bandeja  4.95->4.99']
+  31001 Navarra -> D zona 14955 (BM ARDOI ONLINE): 197 prod, 0/147 distintos []
+  39001 Cantabria -> D zona 14971 (BM SANTANDER ONLINE): 198 prod, 2/138 distintos ['Pollo limpio certifica 6.99->6.49', 'Alas de pollo bandeja  4.95->4.99']
