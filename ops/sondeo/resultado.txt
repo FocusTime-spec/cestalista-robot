@@ -1,87 +1,123 @@
 
-===== Consum: 2876570 bytes JS; rutas con zona/CP:
-    /commons/zipCode/${r}/cities
-    /commons/zipCode/${r}/region/${o}/city/${e}
-    /commons/zipCode/validate
-    /shipping/area
-    /shipping/area/${i}/timezone
-    /shipping/config
-    /shipping/voucher/config
-    /shopping/cart/zone
-    /user/${r}/store
-    /user/${r}/store/${o}
-    /user/${r}/store/${o}/select
-  cabeceras x-: ['X-Request-URL', 'X-Robots-Tag', 'X-TOL-APP', 'X-TOL-CHANNEL', 'X-TOL-CURRENCY', 'X-TOL-LOCALE', 'X-TOL-SHIPPING-ZONE', 'X-TOL-USERID', 'X-TOL-ZONE', 'X-XSRF-TOKEN', 'x-firebase-client', 'x-goog-api-key', 'x-goog-firebase-installations-auth']
-  valores por defecto: ['08006', '1', '1D', 't']
+===== https://tienda.consum.es
+sin zona: 90 productos
+  X-TOL-ZONE=1: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=1: 90 prod, 88 comunes, 0 distintos []
+  X-TOL-ZONE=2: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=2: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=3: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=3: 90 prod, 88 comunes, 0 distintos []
+  X-TOL-ZONE=4: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=4: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=5: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=5: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=6: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=6: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=8: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=8: 90 prod, 88 comunes, 0 distintos []
+  X-TOL-ZONE=10: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=10: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=12: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=12: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=15: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=15: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=20: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=20: 90 prod, 88 comunes, 0 distintos []
+  X-TOL-ZONE=25: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=25: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=30: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=30: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=40: 90 prod, 89 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=40: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=50: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=50: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=100: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=100: 90 prod, 90 comunes, 0 distintos []
+  /api/rest/V1.0/shipping/area?zipCode=46001 -> 500 '{"meta":{"code":500},"traceId":"41085d6dca1c68d29a689d89347e2b5a"}'
+  /api/rest/V1.0/shipping/area?zipcode=46001 -> 500 '{"meta":{"code":500},"traceId":"c284a77915883ffa7b52f2ec200b6204"}'
+  /api/rest/V1.0/shipping/area?postalCode=46001 -> 500 '{"meta":{"code":500},"traceId":"c65089c2b4bae0b4368c89695a897389"}'
+  /api/rest/V1.0/shipping/config -> 200 '[]'
+  /api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D -> 200 '[{"groupId":"region","groupName":"VALENCIA","shippingAreas":[{"shippingZoneId":"147D","deliveryTypeId":"D","enabled":true,"description":"IMPORT-147D","zone":{"id":147,"storeCode":"147","name":"Centro 147","contact":{"phone":"","email":""},"address":{"streetType":"Calle","street":"Calle Jesús","stree'
+  /api/rest/V1.0/shipping/area?shippingMethod=T -> 200 '[]'
 
-===== Masymas: 3527941 bytes JS; rutas con zona/CP:
-    /commons/zipCode/${fe}/cities
-    /commons/zipCode/${fe}/region/${le}/city/${oe}
-    /commons/zipCode/validate
-    /shipping/area
-    /shipping/area/${E}/timezone
-    /shipping/config
-    /shopping/cart/zone
-    /user/${Z}/store/${N}/select
-    /user/${fe}/store
-    /user/${fe}/store/${le}
-  cabeceras x-: ['X-Request-URL', 'X-Robots-Tag', 'X-TOL-CHANNEL', 'X-TOL-CURRENCY', 'X-TOL-LOCALE', 'X-TOL-SHIPPING-ZONE', 'X-TOL-USERID', 'X-TOL-ZONE', 'X-XSRF-TOKEN', 'x-firebase-client', 'x-goog-api-key', 'x-goog-firebase-installations-auth', 'x-placement']
-  valores por defecto: ['08006', '1', '1D', 'L']
-https://tienda.consum.es/api/rest/V1.0/shopping/cart/zone -> 404 '{"meta":{"code":404},"traceId":"d5274fc4a0a032a1804d40c3108b7936"}'
-https://tienda.consum.es/api/rest/V2.0/shopping/cart/zone -> 500 '{"meta":{"code":500},"traceId":"6a2824bcfa2aed8de0b82258ec04334a"}'
-https://tienda.consum.es/api/rest/V1.0/commons/zipCode/46001/cities -> 200 '[{"zipCode":"46001","cityCode":"250","city":"VALÈNCIA","regionCode":"46","region":"VALENCIA/VALÈNCIA"}]'
-https://tienda.consum.es/api/rest/V1.0/shipping/area -> 500 '{"meta":{"code":500},"traceId":"3aa3e0c292cf2303a067d0c71291fdc4"}'
-https://tienda.consum.es/api/rest/V1.0/shipping/areas -> 404 '{"meta":{"code":404},"traceId":"f8249459378f4e6886cd284a3ce4be79"}'
-https://tienda.consum.es/api/rest/V1.0/commons/config -> 404 '{"meta":{"code":404},"traceId":"c5e84ee8a259aeaa2ecd9214a407f4e9"}'
-https://tienda.consum.es/api/rest/V1.0/shopping/zone -> 404 '{"meta":{"code":404},"traceId":"26346650c59bb30ca9793b60a1b3972e"}'
-https://tienda.consum.es/api/rest/V1.0/shipping/zone/zipcode/46001 -> 404 '{"meta":{"code":404},"traceId":"8c307a23c140c37c3834846359f5c948"}'
-https://tienda.consum.es/api/rest/V1.0/shipping/shippingArea/zipCode/46001 -> 404 '{"meta":{"code":404},"traceId":"106d1a696462caab5067fdef2577779b"}'
-https://tienda.masymas.com/api/rest/V1.0/shopping/cart/zone -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V2.0/shopping/cart/zone -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V1.0/commons/zipCode/46001/cities -> 503 '{"meta":{"code":503,"errorType":"51"},"traceId":"01a3f9aae26ca3a19bc5ac5ae8f27424"}'
-https://tienda.masymas.com/api/rest/V1.0/shipping/area -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V1.0/shipping/areas -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V1.0/commons/config -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V1.0/shopping/zone -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V1.0/shipping/zone/zipcode/46001 -> 500 '{"meta":{"code":500}}'
-https://tienda.masymas.com/api/rest/V1.0/shipping/shippingArea/zipCode/46001 -> 500 '{"meta":{"code":500}}'
+===== https://tienda.masymas.com
+sin zona: 90 productos
+  X-TOL-ZONE=1: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=1: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=2: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=2: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=3: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=3: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=4: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=4: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=5: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=5: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=6: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=6: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=8: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=8: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=10: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=10: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=12: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=12: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=15: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=15: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=20: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=20: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=25: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=25: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=30: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=30: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=40: 90 prod, 89 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=40: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=50: 90 prod, 88 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=50: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=100: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=100: 90 prod, 90 comunes, 0 distintos []
+  /api/rest/V1.0/shipping/area?zipCode=46001 -> 500 '{"meta":{"code":500}}'
+  /api/rest/V1.0/shipping/area?zipcode=46001 -> 500 '{"meta":{"code":500}}'
+  /api/rest/V1.0/shipping/area?postalCode=46001 -> 500 '{"meta":{"code":500}}'
+  /api/rest/V1.0/shipping/config -> 200 '[]'
+  /api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D -> 200 '[{"groupId":"region","groupName":"Valencia/València","shippingAreas":[{"shippingZoneId":"T-011","deliveryTypeId":"D","enabled":true,"description":"Mislata","zone":{"id":11,"storeCode":"11","name":"Tienda 011 Mislata","contact":{"phone":"900777000","email":"mislata11@fornes.net"},"address":{"streetTy'
+  /api/rest/V1.0/shipping/area?shippingMethod=T -> 200 '[]'
 
-===== Alcampo rutas /api:
-    /api/${B1}
-    /api/${Sr}
-    /api/address
-    /api/adverts
-    /api/cart
-    /api/charges
-    /api/chat
-    /api/checkout-groups
-    /api/checkoutwalk
-    /api/customer
-    /api/customer-favorites
-    /api/customer-preferences
-    /api/customer-segments
-    /api/customer/v1/benefit-groups/delivery-pass/subscription/${t}/receipt
-    /api/customerloyalty
-    /api/customersessions
-    /api/cxhub
-    /api/ecomdeliverydestinations
-    /api/ecomfulfillments
-    /api/ecomslots
-    /api/order
-    /api/orderpayment
-    /api/paymentsws
-    /api/product-listing-pages
-    /api/promotions
-    /api/promotionspresentation
-    /api/pspweb
-    /api/receipts/v1/orders/${t}/receipt.pdf
-    /api/recipes
-    /api/recurringshopping
-    /api/regulars
-    /api/scihub
-    /api/search
-    /api/visualconfiguration
-    /api/visualconfiguration/v1/fop-configuration/schema
-    /api/visualconfiguration/v1/fop-list-configuration/schema
-    /api/walletservice
-    /api/webproductpagews
+===== https://www.online.bmsupermercados.es
+sin zona: 90 productos
+  X-TOL-ZONE=1: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=1: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=2: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=2: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=3: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=3: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=4: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=4: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=5: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=5: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=6: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=6: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=8: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=8: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=10: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=10: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=12: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=12: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=15: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=15: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=20: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=20: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=25: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=25: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=30: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=30: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=40: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=40: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=50: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=50: 90 prod, 90 comunes, 0 distintos []
+  X-TOL-ZONE=100: 0 prod, 0 comunes, 0 distintos []
+  X-TOL-SHIPPING-ZONE=100: 90 prod, 90 comunes, 0 distintos []
+  /api/rest/V1.0/shipping/area?zipCode=46001 -> 500 '{"meta":{"code":500},"traceId":"ccec9ee2e6f98f6b527904848941460c"}'
+  /api/rest/V1.0/shipping/area?zipcode=46001 -> 500 '{"meta":{"code":500},"traceId":"3c13f47edca8ddd7760a1693583f54d6"}'
+  /api/rest/V1.0/shipping/area?postalCode=46001 -> 500 '{"meta":{"code":500},"traceId":"9f91923eb9bd36e0acaee7583a8bd203"}'
+  /api/rest/V1.0/shipping/config -> 200 '[]'
+  /api/rest/V1.0/shipping/area?zipCode=46001&shippingMethod=D -> 200 '[]'
+  /api/rest/V1.0/shipping/area?shippingMethod=T -> 200 '[{"groupId":"region","groupName":"Araba/Álava","shippingAreas":[{"shippingZoneId":"14985T","deliveryTypeId":"T","enabled":true,"description":"BM LAKUA","zone":{"id":14985,"storeCode":"14985","name":"BM LAKUA","contact":{"phone":"","email":""},"address":{"streetType":"Avenida","street":"Antonio Macha'
