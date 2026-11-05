@@ -1,10 +1,10 @@
+cookies: ['VISITORID', 'AWSALB', 'AWSALBCORS', 'global_sid'] csrf: True [':false,"fetchError":false,"lastUpdated":null}}},"session":{"csrf":{"token":"f14db868-78eb-434b-931b-0ecce1085e19"},"features":{"enabledFeatures":["wsf.rc","wacccp","pay.fc3ds","wsf']
 
-===== CP 08001 visitor=m5L32O1gqx
-by-postcode 403 
-session active 400 {"args":{},"path":"/core-api/v2/sessions/active","code":"BAD_REQUEST","httpStatus":400,"error":"Bad Request","message":"Request could not be processed successfully","moreInfo":"http://tools.ietf.org/html/rfc7231#section-6.5.1","timestamp":"2026-11-05T19:16:58.453Z","status":400}
-supported-propositions 200 [{"deliveryMethod":"HOME_DELIVERY","propositionType":"SCHEDULED","deliveryPropositionId":"89654e6b-e00d-4522-a061-ae65390a6cb0","isDefault":true,"details":{"name":"Entrega","alternativeName":"Entrega","shortDescription":"","iconUrl":"https://www.compraonline.alcampo.es/propositions/89654e6b-e00d-4522-a061-ae65390a6cb0.png","darkIconUrl":"https://www.compraonline.alcampo.es/propositions/89654e6b-e00d-4522-a061-ae65390a6cb0.png","iconDescription":""}},{"deliveryMethod":"HOME_DELIVERY","propositionType":"FAST","deliveryPropositionId":"01bc36cc-4b42-4ff1-9c75-a8d9b8000cb5","isDefault":false,"detai
+===== CP 08001 visitor=FyA6nlHo8s
+by-postcode 400 {"timestamp":"2026-11-05T19:17:36.090582958Z","args":null,"moreInfo":"","message":"Request could not be processed successfully","httpStatus":400,"code":"webaddressws-3000"}
+session active 400 {"args":{},"path":"/core-api/v2/sessions/active","code":"BAD_REQUEST","httpStatus":400,"error":"Bad Request","message":"Request could not be processed successfully","moreInfo":"http://tools.ietf.org/html/rfc7231#section-6.5.1","timestamp":"2026-11-05T19:17:36.282Z","status":400}
+cookies: ['VISITORID', 'AWSALB', 'AWSALBCORS', 'global_sid'] csrf: True [':false,"fetchError":false,"lastUpdated":null}}},"session":{"csrf":{"token":"cb5192d5-5b00-4124-b4ce-d3e4591350c5"},"features":{"enabledFeatures":["wsf.rc","wacccp","pay.fc3ds","wsf']
 
-===== CP 41001 visitor=ctLlYqD67l
-by-postcode 403 
-session active 400 {"args":{},"path":"/core-api/v2/sessions/active","code":"BAD_REQUEST","httpStatus":400,"error":"Bad Request","message":"Request could not be processed successfully","moreInfo":"http://tools.ietf.org/html/rfc7231#section-6.5.1","timestamp":"2026-11-05T19:17:00.073Z","status":400}
-supported-propositions 200 [{"deliveryMethod":"HOME_DELIVERY","propositionType":"SCHEDULED","deliveryPropositionId":"89654e6b-e00d-4522-a061-ae65390a6cb0","isDefault":true,"details":{"name":"Entrega","alternativeName":"Entrega","shortDescription":"","iconUrl":"https://www.compraonline.alcampo.es/propositions/89654e6b-e00d-4522-a061-ae65390a6cb0.png","darkIconUrl":"https://www.compraonline.alcampo.es/propositions/89654e6b-e00d-4522-a061-ae65390a6cb0.png","iconDescription":""}},{"deliveryMethod":"HOME_DELIVERY","propositionType":"FAST","deliveryPropositionId":"01bc36cc-4b42-4ff1-9c75-a8d9b8000cb5","isDefault":false,"detai
+===== CP 41001 visitor=jux6GQM8M8
+by-postcode 400 {"code":"webaddressws-3000","timestamp":"2026-11-05T19:17:38.256782847Z","args":null,"moreInfo":"","message":"Request could not be processed successfully","httpStatus":400}
+session active 400 {"args":{},"path":"/core-api/v2/sessions/active","code":"BAD_REQUEST","httpStatus":400,"error":"Bad Request","message":"Request could not be processed successfully","moreInfo":"http://tools.ietf.org/html/rfc7231#section-6.5.1","timestamp":"2026-11-05T19:17:38.427Z","status":400}
