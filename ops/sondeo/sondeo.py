@@ -1,54 +1,52 @@
-"""Sondeo 5: CP -> tienda (zona) en Aktios y comparación de precios entre tiendas."""
-import json, urllib.request, ssl
+"""Sondeo 6: Alcampo (regiones) e HiperDino (tiendas)."""
+import re, json, urllib.request, urllib.parse, ssl
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36"
 ctx = ssl.create_default_context()
-def get(url, headers=None):
-    h = {"User-Agent": UA, "Accept": "application/json", "Accept-Language": "es-ES"}; h.update(headers or {})
+def get(url, headers=None, data=None, method=None):
+    h = {"User-Agent": UA, "Accept": "*/*", "Accept-Language": "es-ES"}; h.update(headers or {})
+    if isinstance(data, (dict, list)): data = json.dumps(data).encode(); h["Content-Type"] = "application/json"
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers=h), timeout=25, context=ctx) as r:
-            return r.status, r.read(4_000_000).decode("utf-8", "replace")
+        with urllib.request.urlopen(urllib.request.Request(url, data=data, headers=h, method=method), timeout=25, context=ctx) as r:
+            return r.status, dict(r.headers), r.read(8_000_000).decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
-        return e.code, (e.read(2000) or b"").decode("utf-8", "replace")
+        return e.code, dict(e.headers or {}), (e.read(3000) or b"").decode("utf-8", "replace")
     except Exception as e:
-        return 0, str(e)[:200]
+        return 0, {}, str(e)[:200]
 out = []
 def p(*a): out.append(" ".join(str(x) for x in a))
-TERMS = ["leche", "platano", "pollo", "tomate", "aceite", "huevos", "manzana", "pan", "yogur", "atun"]
-def precios(base, zone=None):
-    m = {}
-    for q in TERMS:
-        st, b = get(f"{base}/api/rest/V1.0/catalog/searcher/products?q={q}&limit=20&offset=0", {"X-TOL-ZONE": str(zone)} if zone else {})
-        try:
-            for x in json.loads(b)["catalog"]["products"]:
-                m[str(x.get("code") or x.get("id"))] = (x["productData"]["name"], x["priceData"]["prices"][0]["value"]["centAmount"])
-        except Exception:
-            pass
-    return m
-def zona(base, cp):
-    for met in ("D", "T"):
-        st, b = get(f"{base}/api/rest/V1.0/shipping/area?zipCode={cp}&shippingMethod={met}")
-        try:
-            arr = json.loads(b)
-            for g in arr:
-                for a in g.get("shippingAreas", []):
-                    z = a.get("zone") or {}
-                    if z.get("id"): return met, z["id"], z.get("name"), a.get("shippingZoneId"), g.get("groupName")
-        except Exception:
-            pass
-    return None
-PLAN = {
- "https://tienda.consum.es": ["46001", "08001", "30001", "03001", "12001", "02001", "43001", "17001"],
- "https://tienda.masymas.com": ["46001", "33001", "03001", "30001", "24001", "02001"],
- "https://www.online.bmsupermercados.es": ["28001", "48001", "20001", "01001", "31001", "39001"],
-}
-for base, cps in PLAN.items():
-    p(f"\n===== {base}")
-    ref = precios(base); p("sin zona:", len(ref), "productos")
-    for cp in cps:
-        z = zona(base, cp)
-        if not z: p(f"  {cp}: sin tienda"); continue
-        m = precios(base, z[1])
-        com = [k for k in m if k in ref]
-        dif = [f"{ref[k][0][:22]} {ref[k][1]}->{m[k][1]}" for k in com if m[k][1] != ref[k][1]]
-        p(f"  {cp} {z[4]} -> {z[0]} zona {z[1]} ({z[2]}): {len(m)} prod, {len(dif)}/{len(com)} distintos {dif[:3]}")
+# --- Alcampo
+home = "https://www.compraonline.alcampo.es/"
+st, hd, html = get(home)
+t = html
+for s in re.findall(r'<script[^>]+src=["\']([^"\']+)["\']', html)[:30]:
+    u = urllib.parse.urljoin(home, s)
+    if "alcampo" in urllib.parse.urlparse(u).netloc: t += get(u)[2]
+p("== Alcampo JS bytes", len(t))
+seen = 0
+for m in re.finditer(r"ecomdeliverydestinations|customersessions|regions?/|/region|changeRegion|setRegion|postcode", t):
+    frag = t[max(0, m.start()-140): m.end()+180].replace("\n", " ")
+    if "/" not in frag: continue
+    p("  ...", frag, "...")
+    seen += 1
+    if seen > 25: break
+p("Set-Cookie portada:", [c.split(";")[0][:60] for k, c in hd.items() if k.lower() == "set-cookie"])
+# lista de regiones (adivinanzas)
+for path in ["/api/ecomdeliverydestinations/v1/regions", "/api/customersessions/v1/regions", "/api/address/v1/regions",
+             "/api/ecomdeliverydestinations/v2/postcode/28001", "/api/address/v3/address-lookup/by-postcode?countryCode=ES&postcode=08001"]:
+    s2, _, b = get(home.rstrip("/") + path, headers={"Accept": "application/json"})
+    p(path, s2, b[:250].replace("\n", " "))
+# --- HiperDino doofinder
+s3, _, b = get("https://eu1-search.doofinder.com/6/98bc6bfc3b241d1e43c90f646cfb077d/_search?query=leche&rpp=3", headers={"Origin": "https://www.hiperdino.es", "Referer": "https://www.hiperdino.es/"})
+p("\n== HiperDino doofinder", s3)
+try:
+    j = json.loads(b); r0 = j["results"][0]
+    p("claves:", sorted(r0.keys()))
+    p("ejemplo:", json.dumps({k: r0[k] for k in list(r0)[:40]}, ensure_ascii=False)[:1500])
+    p("facets:", list((j.get("facets") or {}).keys()))
+except Exception as e:
+    p("err", e, b[:300])
+# HiperDino portada: zonas/tiendas
+st, hd, html = get("https://www.hiperdino.es/")
+for m in list(re.finditer(r"postcodePickupShop|store_?[Cc]ode|zona|isla", html))[:12]:
+    p("  hd...", html[max(0, m.start()-120): m.end()+160].replace("\n", " "))
 open("ops/sondeo/resultado.txt", "w").write("\n".join(out))
