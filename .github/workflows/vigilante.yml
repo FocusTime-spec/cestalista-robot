@@ -1,0 +1,46 @@
+name: Vigilante cestalista.com
+# Cada 15 minutos comprueba que cestalista.com responde. Si falla dos veces
+# seguidas (con 1 minuto entre medias), abre un aviso en GitHub (te llega por
+# correo). Cuando vuelve a funcionar, cierra el aviso (también te llega).
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+permissions:
+  issues: write
+concurrency: { group: vigilante, cancel-in-progress: false }
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - id: web
+        run: |
+          check() {
+            a=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 https://cestalista.com/proximamente)
+            b=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "https://cestalista.com/api/public/recipes")
+            echo "web=$a api=$b"
+            [ "$a" = "200" ] && [ "$b" = "200" ]
+          }
+          if check; then echo "ok=1" >> $GITHUB_OUTPUT; exit 0; fi
+          sleep 60
+          if check; then echo "ok=1" >> $GITHUB_OUTPUT; else echo "ok=0" >> $GITHUB_OUTPUT; fi
+      - uses: actions/github-script@v7
+        env:
+          OK: ${{ steps.web.outputs.ok }}
+        with:
+          script: |
+            const titulo = "🔴 cestalista.com no responde";
+            const { data: abiertos } = await github.rest.issues.listForRepo({ owner: context.repo.owner, repo: context.repo.repo, state: "open", labels: "caida" });
+            const hora = new Date().toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+            if (process.env.OK !== "1") {
+              if (abiertos.length === 0) {
+                await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title: titulo, labels: ["caida"],
+                  body: `Desde las ${hora} (hora de España) cestalista.com no responde bien.\n\nAvisa a Claude. Si corre prisa, plan B: en Porkbun vuelve a poner\n- A cestalista.com → 216.198.79.1\n- CNAME www → f4ab342c9416dc55.vercel-dns-017.com.` });
+              }
+            } else {
+              for (const i of abiertos) {
+                await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: i.number, body: `✅ Vuelve a funcionar (${hora}).` });
+                await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: i.number, state: "closed" });
+              }
+            }
