@@ -2,7 +2,7 @@
 # Cloud Shell: desde el servidor, pregunta a Mercadona la zona de precios de
 # varios códigos postales y comprueba que el catálogo de cada zona existe.
 IP=$(cat ~/.cestalista-ip)
-ssh -n -i ~/.ssh/cestalista ubuntu@"$IP" 'bash -s' <<'IN'
+ssh -i ~/.ssh/cestalista ubuntu@"$IP" 'bash -s' <<'IN'
 echo "CP     provincia     zona  catálogo  leche 1L (precio)"
 for par in 28001:Madrid 08001:Barcelona 46001:Valencia 41001:Sevilla 03001:Alicante 15001:Coruña 33001:Asturias 30001:Murcia 48001:Bizkaia 50001:Zaragoza 35001:LasPalmas 07001:Baleares 47001:Valladolid 18001:Granada; do
   cp=${par%%:*}; pr=${par#*:}
