@@ -13,7 +13,8 @@ for (const t of ["retailer_crawl_queue", "retailer_catalog"]) {
   console.log(t, "->", r.status, r.headers.get("content-range"), (await r.text()).slice(0, 160));
 }
 // Lo mismo que hace la app (cliente oficial)
-const { createClient } = await import("/srv/cestalista/app/node_modules/@supabase/supabase-js/dist/main/index.js");
+const { createRequire } = await import("node:module");
+const { createClient } = createRequire("/srv/cestalista/app/package.json")("@supabase/supabase-js");
 const db = createClient(u, k, { auth: { persistSession: false }, global: { fetch: (i, init) => { const hh = new Headers(init?.headers); if (hh.get("Authorization") === `Bearer ${k}`) hh.delete("Authorization"); hh.set("apikey", k); return fetch(i, { ...init, headers: hh }); } } });
 const q = await db.from("retailer_crawl_queue").select("id", { count: "exact", head: true });
 console.log("cliente app -> count", q.count, "error", q.error ? JSON.stringify(q.error).slice(0, 200) : "ninguno");
