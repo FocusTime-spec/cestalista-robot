@@ -3,6 +3,11 @@
 IP=$(cat ~/.cestalista-ip)
 ssh -i ~/.ssh/cestalista ubuntu@"$IP" 'bash -s' <<'IN'
 D=/srv/cestalista
+grep -q '^SELF_BASE_URL=' $D/.env || echo 'SELF_BASE_URL=http://127.0.0.1:3000' >> $D/.env
+echo "Poniendo la app al día..."
+for t in 1 2 3; do bash $D/actualizar.sh | tail -1; git -C $D/app log -1 --format=%s | grep -q "SELF_BASE_URL" && break; sleep 20; done
+sudo systemctl restart cestalista
+echo "Versión: $(git -C $D/app log -1 --format='%h %s' | cut -c1-55)"
 CS=$(grep '^CRON_SECRET=' $D/.env | head -1 | cut -d= -f2- | tr -d '"'"'"'\r')
 for i in $(seq 1 15); do [ "$(curl -s -o /dev/null -w '%{http_code}' -m 5 http://127.0.0.1:3000/proximamente)" = "200" ] && break; sleep 2; done
 echo "Alertas de precio (puede tardar hasta 4 minutos)..."
