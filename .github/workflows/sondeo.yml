@@ -1,0 +1,17 @@
+name: Sondeo supermercados
+on:
+  push:
+    paths: ["ops/sondeo/sondeo.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sondeo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 ops/sondeo/sondeo.py
+      - run: |
+          git config user.name "FocusTime-spec"; git config user.email "iashorts615@gmail.com"
+          git add ops/sondeo/resultado.txt && git commit -m "Resultado del sondeo [skip ci]" && git push || true
